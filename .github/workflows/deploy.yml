@@ -45,7 +45,7 @@ jobs:
         run: |
           git config --global user.name "LingHime"
           git config --global user.email "992066762@163.com"
-          hexo deploy
+          npm hexo clean && npm hexo g && npm hexo deploy
 
       - run: echo "Deploy Successful!"
 
