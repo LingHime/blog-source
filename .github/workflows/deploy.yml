@@ -5,8 +5,8 @@ on:
     branches: 
       - main # 监测 main的 push
 env:
-  GIT_USER: "LingHime"
-  GIT_EMAIL: "992066762@163.com"
+  GIT_USER: LingHime
+  GIT_EMAIL: 992066762@163.com
 
 jobs:
   blog: # 任务名称
