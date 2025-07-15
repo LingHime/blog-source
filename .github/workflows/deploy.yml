@@ -13,7 +13,6 @@ jobs:
       - uses: actions/setup-node@v4 # 设置 node.js 环境
         with:
           node-version: '22.17.0'  # 根据你的 Node.js 版本进行调整
-        uses: actions/cache@v4
 
       - name: Init Node.js # 安装源代码所需插件
         run: |
