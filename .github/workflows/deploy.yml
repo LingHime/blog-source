@@ -4,6 +4,9 @@ on:
   push:
     branches: 
       - main # 监测 main的 push
+env:
+  GIT_USER: LingHime
+  GIT_EMAIL: 992066762@163.com
 
 jobs:
   blog: # 任务名称
@@ -22,16 +25,27 @@ jobs:
       - name: Install Hexo-cli # 安装 Hexo
         run: npm install hexo-cli -g --no-fund && npm install hexo-server --save --no-fund
 
+      # 从之前设置的 secret 获取部署私钥
+      - name: Setup SSH Keys and known_hosts
+        env:
+          HEXO_DEPLOY_PRI: ${{ secrets.HEXO_DEPLOY_PRI }} 
+        run: |
+          sudo timedatectl set-timezone "Asia/Tokyo"
+          mkdir -p ~/.ssh
+          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.name $GIT_USER
+          git config --global user.email $GIT_EMAIL
+
       - name: Build Blog # 编译创建静态博客文件
         run: |
           hexo clean
           hexo g
           echo "build blog successful"
 
-      - name: Deploy jiji's Blog # 设置 git 信息并推送静态博客文件
+      - name: Deploy jiji's Blog # 推送静态博客文件
         run: |
-          git config --global user.name "LingHime"
-          git config --global user.email "992066762@163.com"
           hexo deploy
 
       - run: echo "Deploy Successful!"
