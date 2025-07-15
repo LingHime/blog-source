@@ -20,7 +20,7 @@ jobs:
           echo "init node successful"
 
       - name: Install Hexo-cli # 安装 Hexo
-        run: npm install hexo-cli -g --no-fund && npm install hexo-server --save --no-fund
+        run: npm install hexo-cli -g --no-fund && npm install hexo-server --save --no-fund && npm install hexo-deployer-git --save --no-fund
 
       - name: Build Blog # 编译创建静态博客文件
         run: |
