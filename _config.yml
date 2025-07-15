@@ -106,4 +106,4 @@ deploy:
   type: git
   repo: https://www.github.com/LingHime/blog.pages.git
   branch: main
-  message:  Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}
+  message:  "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
