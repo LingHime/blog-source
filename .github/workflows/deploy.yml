@@ -58,4 +58,4 @@ jobs:
           git config user.email "992066762@163.com"
           git add .
           git commit -m "Deploy via GitHub Actions"
-          git push --force --quiet "https://$GH_TOKEN@github.com/LingHime/blog.pages.git" branch: main
+          git push --force --quiet "https://$GH_TOKEN@github.com/LingHime/blog.pages.git" master: main
