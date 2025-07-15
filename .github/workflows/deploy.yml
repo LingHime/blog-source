@@ -59,4 +59,4 @@ jobs:
           git branch -M main
           git add .
           git commit -m "Deploy via GitHub Actions"
-          git push --force --quiet "https://github.com/LingHime/blog.pages.git" main main
+          git push --force --quiet "https://oauth2:$GH_TOKEN@github.com/LingHime/blog.pages.git" main main
